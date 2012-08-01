@@ -1,0 +1,7 @@
+name 'antonl-puppet'
+version '0.0.1'
+author 'Anton Lindström'
+summary 'Module for managing Puppet'
+description 'Manages Puppet Agent, Puppetmaster and a Cron entry'
+license 'GPLv2'
+project_page 'http://github.com/antonlindstrom/puppet-puppet'
