@@ -1,4 +1,4 @@
-class puppet::master($ensure) {
+class puppet::master($ensure='present') {
 
   $service_status = $ensure ? {
     absent  => 'stopped',

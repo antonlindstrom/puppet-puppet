@@ -1,4 +1,4 @@
-class puppet::agent($ensure, $pluginsync = true) {
+class puppet::agent($ensure='present', $pluginsync = true) {
 
   $ensure_file = $ensure ? {
     latest  => 'present',

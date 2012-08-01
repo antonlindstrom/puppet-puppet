@@ -1,4 +1,4 @@
-class puppet::cron($ensure) {
+class puppet::cron($ensure='present') {
 
   # Random Backoff, may cause bug #8814 in tests
   $minute = fqdn_rand(30)
