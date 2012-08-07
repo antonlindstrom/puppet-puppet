@@ -9,6 +9,7 @@ describe 'puppet::agent', :type => :class do
 
     describe 'packages' do
       it { should contain_package('puppet').with_ensure('present') }
+      it { should contain_package('facter').with_ensure('present') }
     end
 
     describe 'files' do
@@ -28,6 +29,7 @@ describe 'puppet::agent', :type => :class do
 
     describe 'packages' do
       it { should contain_package('puppet').with_ensure('latest') }
+      it { should contain_package('facter').with_ensure('latest') }
     end
 
     describe 'files' do
@@ -47,6 +49,7 @@ describe 'puppet::agent', :type => :class do
 
     describe 'packages' do
       it { should contain_package('puppet').with_ensure('absent') }
+      it { should contain_package('facter').with_ensure('absent') }
     end
 
     describe 'files' do

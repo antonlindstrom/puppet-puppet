@@ -9,6 +9,10 @@ class puppet::agent($ensure='present', $pluginsync = true) {
     ensure => $ensure,
   }
 
+  package { 'facter':
+    ensure => $ensure,
+  }
+
   file { '/etc/puppet/puppet.conf':
     ensure  => $ensure_file,
     owner   => root,
