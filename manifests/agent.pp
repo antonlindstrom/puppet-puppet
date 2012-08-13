@@ -1,7 +1,8 @@
 class puppet::agent(
   $ensure     ='present',
   $pluginsync = true,
-  $report     = false
+  $report     = false,
+  $reports    = ''
 ) {
 
   $ensure_file = $ensure ? {

@@ -62,7 +62,7 @@ describe 'puppet::agent', :type => :class do
     end
   end
   
-  describe 'template content' do
+  describe 'template content reports undefined' do
     let(:params) do
       { 
         :ensure     => 'present', 
@@ -75,6 +75,26 @@ describe 'puppet::agent', :type => :class do
       content = catalogue.resource('file', '/etc/puppet/puppet.conf').send(:parameters)[:content]
       content.should match /pluginsync=true/
       content.should match /report=true/
+      content.should_not match /reports=/
+    end
+
+  end
+
+  describe 'template content reports defined' do
+    let(:params) do
+      { 
+        :ensure     => 'present', 
+        :pluginsync => 'true',
+        :report     => 'true',
+        :reports    => 'log, foreman'
+      }
+    end
+
+    it 'should contain passed variables in puppet.conf' do
+      content = catalogue.resource('file', '/etc/puppet/puppet.conf').send(:parameters)[:content]
+      content.should match /pluginsync=true/
+      content.should match /report=true/
+      content.should match /reports=log, foreman/
     end
 
   end
