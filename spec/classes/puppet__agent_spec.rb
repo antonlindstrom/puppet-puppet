@@ -61,4 +61,22 @@ describe 'puppet::agent', :type => :class do
       ) end
     end
   end
+  
+  describe 'template content' do
+    let(:params) do
+      { 
+        :ensure     => 'present', 
+        :pluginsync => 'true',
+        :report     => 'true'
+      }
+    end
+
+    it 'should contain passed variables in puppet.conf' do
+      content = catalogue.resource('file', '/etc/puppet/puppet.conf').send(:parameters)[:content]
+      content.should match /pluginsync=true/
+      content.should match /report=true/
+    end
+
+  end
+    
 end
