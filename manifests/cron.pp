@@ -1,7 +1,7 @@
 class puppet::cron($ensure='present') {
 
   # Random Backoff, may cause bug #8814 in tests
-  $minute = fqdn_rand(30)
+  $minute = fqdn_rand(60)
 
   # Puppet runonce components
   $binary = '/usr/sbin/puppetd'
